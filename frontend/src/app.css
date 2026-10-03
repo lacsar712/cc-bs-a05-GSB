@@ -42,6 +42,64 @@ h1 {
   margin-bottom: 1rem;
 }
 
+.topnav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.topnav .user {
+  color: #555;
+  font-size: 0.9rem;
+  margin: 0 0.25rem;
+}
+
+.cols {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.col {
+  flex: 1 1 320px;
+  min-width: 0;
+}
+
+.confirmed-item {
+  border-top: 1px solid #eee;
+  padding: 0.5rem 0;
+}
+
+.confirmed-item:first-of-type {
+  border-top: none;
+}
+
+.confirmed-head {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.ledger {
+  margin: 0.35rem 0 0;
+  padding-left: 1.1rem;
+  color: #555;
+  font-size: 0.82rem;
+}
+
+.ledger li {
+  margin: 0.15rem 0;
+}
+
+.muted {
+  color: #888;
+  font-size: 0.85rem;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;
