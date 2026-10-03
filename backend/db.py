@@ -22,6 +22,36 @@ CREATE TABLE IF NOT EXISTS strain_readings (
     processed_at timestamptz
 );
 CREATE INDEX IF NOT EXISTS idx_strain_readings_status ON strain_readings (status, id);
+
+CREATE TABLE IF NOT EXISTS span_openings (
+    id serial PRIMARY KEY,
+    span_code text NOT NULL,
+    requested_by text NOT NULL,
+    status text NOT NULL DEFAULT 'pending',
+    requested_at timestamptz NOT NULL DEFAULT now(),
+    confirmed_by text,
+    confirmed_at timestamptz
+);
+-- 同一申请人对同一跨只允许有一条待确认申请
+CREATE UNIQUE INDEX IF NOT EXISTS idx_span_openings_pending
+    ON span_openings (span_code, requested_by)
+    WHERE status = 'pending';
+-- 写口闸门走该索引：某跨是否存在已确认开放
+CREATE INDEX IF NOT EXISTS idx_span_openings_confirmed
+    ON span_openings (span_code)
+    WHERE status = 'confirmed';
+
+CREATE TABLE IF NOT EXISTS span_confirmation_log (
+    id bigserial PRIMARY KEY,
+    opening_id integer NOT NULL REFERENCES span_openings(id),
+    span_code text NOT NULL,
+    requested_by text NOT NULL,
+    confirmed_by text NOT NULL,
+    action text NOT NULL DEFAULT 'confirm',
+    confirmed_at timestamptz NOT NULL DEFAULT now()
+);
+CREATE INDEX IF NOT EXISTS idx_span_confirmation_log_span
+    ON span_confirmation_log (span_code, id);
 """
 
 

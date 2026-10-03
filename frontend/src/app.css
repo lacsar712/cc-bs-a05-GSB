@@ -129,3 +129,127 @@ th {
   background: #fff8e1;
   color: #f57f17;
 }
+
+.text-right {
+  text-align: right;
+}
+
+.userline {
+  font-size: 0.9rem;
+  margin-bottom: 0.4rem;
+  white-space: nowrap;
+}
+
+button.small {
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+}
+
+button.link {
+  background: none;
+  color: #1565c0;
+  padding: 0 0.2rem;
+  text-decoration: underline;
+  font-size: inherit;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+button.tab {
+  background: #eceff1;
+  color: #37474f;
+  border: 1px solid #cfd8dc;
+}
+
+button.tab.active {
+  background: #1565c0;
+  color: #fff;
+  border-color: #1565c0;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+@media (max-width: 760px) {
+  .columns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+  border: 1px solid #e0e0e0;
+  border-left: 3px solid #f57f17;
+  border-radius: 6px;
+  padding: 0.6rem 0.75rem;
+  margin-bottom: 0.6rem;
+  background: #fffdf5;
+}
+
+.item.done {
+  border-left-color: #2e7d32;
+  background: #f7fdf8;
+  flex-direction: column;
+}
+
+.item-main {
+  min-width: 0;
+}
+
+.item-title {
+  font-size: 0.98rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.meta {
+  color: #555;
+  font-size: 0.82rem;
+  margin-top: 0.25rem;
+}
+
+.note {
+  color: #777;
+  font-size: 0.85rem;
+}
+
+.count {
+  color: #777;
+  font-weight: normal;
+  font-size: 0.85rem;
+}
+
+.loglist {
+  width: 100%;
+  border-top: 1px dashed #d0d0d0;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+.loghead {
+  font-size: 0.8rem;
+  color: #455a64;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.logline {
+  font-size: 0.78rem;
+  color: #555;
+  background: #f5f7f8;
+  border-radius: 4px;
+  padding: 0.25rem 0.45rem;
+  margin-bottom: 0.25rem;
+}
